@@ -52,7 +52,15 @@ and in the manifest you can reference that as follows:
 ```bash
 helm install <release-name> <helm-repo-location>
 ```
-### 6. Upgrading the application (Optional)
+### 6. Adding release notes
+- Create `/templates/NOTES.txt`
+- Anything you write in here will be displayed after installing or upgrading.  For example:
+```txt
+To view the UI from a web browser run:
+
+kubectl port-forward svc/nginx-service 8080:80
+```
+### 7. Upgrading the application (Optional)
 - When you inevitably make an update or change, instead of having to reinstall the whole application, you can use the `helm upgrade` command.  For example, say you made some changes to the `values.yaml` file.  To apply those changes, you can run:
 ```bash
 helm upgrade <release-name> <helm-repo-location> --values <path_to_values.yaml>

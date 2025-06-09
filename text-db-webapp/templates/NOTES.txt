@@ -1,0 +1,2 @@
+To view the UI from a web browser run:
+- kubectl port-forward svc/nginx-service 8080:80
