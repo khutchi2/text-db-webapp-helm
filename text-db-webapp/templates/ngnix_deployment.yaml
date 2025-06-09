@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.nginxName}}
+  namespace: {{.Values.namespace}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Values.nginxName}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.nginxName}}
+    spec:
+      containers:
+      - name: {{.Values.nginxName}}
+        image: {{.Values.nginxImage}}
+        imagePullPolicy: {{.Values.pullPolicy}}
+        ports:
+        - containerPort: {{.Values.nginxDeploymentPort}}
+        securityContext:
+          runAsUser: 101  # nginx user ID
+          runAsGroup: 101  # nginx group ID
+          allowPrivilegeEscalation: false

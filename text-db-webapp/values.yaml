@@ -1,0 +1,10 @@
+appName: flask-app
+nginxName: nginx
+namespace: flask-app
+pullPolicy: IfNotPresent
+flaskDeploymentPort: 5000
+nginxDeploymentPort: 8080
+pvcName: sqlite-data
+pvcPath: /app/data
+flaskImage: khutchi2/text-db:flask
+nginxImage: khutchi2/text-db:nginx
